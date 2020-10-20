@@ -1,37 +1,140 @@
-# Solutions Engineering Template Repository
-A template repository that contains all required files (LICENSE, SUPPORT, CONTRIBUTING, etc) as outlined in the org standards.  
+# project-chariot
 
+Project to explore a programatic way to interface with charon/ACC.
 
-The sections below are recommended in your project's README.md file. 
+This project is currently private.
+
+&nbsp;
+
+---
+
+&nbsp;
 
 ## Overview
-Provide a short overview of the project.
+
+Charon or (A)S3 (C)onfiguration (C)onverter is solving a huge need to help bring our customers from legacy tmos application configs to AS3
+
+The current solution requires the use of local docker.  This is a good first step that keeps the tool in a nice single package.
+
+I have found that running the container is easily described in the documenation but harder to implmenet in reality due to the following:
+    - host system variances (mac, windows, linux)
+        - file system differences
+    - Windows users running VMWare Workstation are not able to run local docker
+
+Seems that volume mounting is the difficult piece and can really hold back any potential users with little to no docker experience.
+
+The intent here is to wrap the ACC tool in another docker container that will provide a full api that can be run as a service.  This will further abstract it's process and allow for more programatic(api) interfacing like the vscode-f5-chariot extension (which provides a workspace for extracting applications, interacting and posting as3 declarations)
+
+&nbsp;
+
+> this is all assuming we cannot get it released as an rpm and intagrate directly
+
+&nbsp;
+
+---
+
+&nbsp;
+
+## Architecture
+
+&nbsp;
+
+---
+
+&nbsp;
 
 ## Getting Started
+
 Provide a quick example of how to use your code.  This should provide the user with a launch point to quickly see what the project can offer them. 
 
+&nbsp;
+
+---
+
+&nbsp;
+
 ## Installation
-Outline the requirements and steps to install this project. 
+
+Installation should included cloning the repo, starting the docker container, import ACC, convert configurations.
+
+&nbsp;
+
+---
+
+&nbsp;
 
 ## Usage
-Outline how the user can use your project and the various features the project offers. 
+
+Once the container is up and running, a webpage should be available to show the user the status of the tool, like needing to upload an ACC archive to load the charon tool into this tool.
+
+If the local docker image is available the page should display an input box to paste config, with a button to convert. Clicking the button should provide converted output below.  This page should also include output from the execution of the output and any additional logging
+
+The web page should be driven by API, so any interactions done in the page should be avaible programatically
+
+&nbsp;
+
+---
+
+&nbsp;
 
 ## Development
-Outline any requirements to setup a development environment if someone would like to contribute.  You may also link to another file for this information. 
+
+Looking to develop this with PS resources.
+
+This tool will be developed using:
+- nodejs v12-lts
+- TypeScript v4.x
+
+Looking to utilize KOA for api framework
+- https://koajs.com/
+- https://www.npmjs.com/package/koa
+- https://github.com/koajs/koa
+
+Would like to document api with Swagger 3.0
+Node tests with mocha?
+test coverage with istanbul (nyc)
+
+&nbsp;
+
+---
+
+&nbsp;
 
 ## Support
+
 For support, please open a GitHub issue.  Note, the code in this repository is community supported and is not supported by F5 Networks.  For a complete list of supported projects please reference [SUPPORT.md](SUPPORT.md).
+
+&nbsp;
+
+---
+
+&nbsp;
 
 ## Community Code of Conduct
 Please refer to the [F5 DevCentral Community Code of Conduct](code_of_conduct.md).
 
+&nbsp;
+
+---
+
+&nbsp;
 
 ## License
 [Apache License 2.0](LICENSE)
 
+&nbsp;
+
+---
+&nbsp;
+
 ## Copyright
 Copyright 2014-2020 F5 Networks Inc.
 
+&nbsp;
+
+---
+
+&nbsp;
 
 ### F5 Networks Contributor License Agreement
 
